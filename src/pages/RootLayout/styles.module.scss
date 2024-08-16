@@ -1,0 +1,71 @@
+@mixin header-styleds($display, $align-items, $justify-content, $padding) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  padding: $padding;
+}
+
+header {
+  @include header-styleds(flex, center, space-evenly, 1rem);
+  background-color: #001b1f;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+
+a {
+  cursor: pointer;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 2rem;
+  gap: 1rem;
+}
+
+.menu li {
+  display: inline-block;
+  max-width: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.menu > li:hover > a::before {
+  visibility: visible;
+  scale: 1 1;
+}
+
+.menu > li a {
+  @include header-styleds(flex, center, center, 0 0.55rem);
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  height: 100%;
+  transition: 0.3s;
+
+  &:hover {
+    color: #10bcd6;
+  }
+}
+
+.menu > li > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.3px;
+  bottom: 3px;
+  left: 0px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  scale: 0 0;
+  visibility: hidden;
+}
+
+footer {
+  background-color: #001b1f;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,197 @@
+@mixin button-styles(
+  $text-decoration,
+  $background-color,
+  $color,
+  $padding,
+  $border-radius,
+  $transition,
+  $max-height
+) {
+  text-decoration: $text-decoration;
+  background-color: $background-color;
+  color: $color;
+  padding: $padding;
+  border-radius: $border-radius;
+  transition: $transition;
+  max-height: $max-height;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 16px 10px #918e8e;
+  border-collapse: collapse;
+
+  thead {
+    background-color: #001b1f;
+  }
+
+  th {
+    font-weight: 600;
+    padding: 1rem 4rem;
+    border-radius: 0.1rem;
+  }
+
+  tbody {
+    background-color: #809ea3;
+
+    tr {
+      transition: 0.4s;
+      &:hover {
+        background-color: #306868;
+      }
+    }
+
+    tr td {
+      padding: 1rem 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .buttonShow {
+      @include button-styles(
+        none,
+        #001b1f,
+        #fff,
+        0.3rem 1.3rem,
+        0.3rem,
+        0.3s,
+        2rem
+      );
+      border: 1px solid #000;
+
+      &:hover {
+        background-color: #fff;
+        color: #306868;
+      }
+    }
+
+    .buttonUpdate {
+      @include button-styles(none, #306868, #fff, 0.3rem 1rem, 0.3rem, 0.3s, 2rem);
+      border: 1px solid #000;
+
+      &:hover {
+        background-color: #fff;
+        color: #001b1f;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 949px) {
+  table {
+    th {
+      padding: 1rem 0.6rem;
+    }
+
+    tbody {
+      tr td {
+        padding: 1rem 0.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 725px) {
+  table {
+    th {
+      padding: 0.8rem 0.4rem;
+    }
+
+    tbody {
+      tr td {
+        padding: 0.8rem 0.4rem;
+      }
+
+      .buttonShow {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.8rem;
+      }
+
+      .buttonUpdate {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 621px) {
+  table {
+    font-size: 0.6rem;
+
+    tbody {
+      .buttonShow {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  table {
+    tbody {
+      tr td {
+        padding: 0.6rem 0.2rem;
+      }
+
+      .buttonShow {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.6rem;
+      }
+
+      .buttonUpdate {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 413px) {
+  table {
+    font-size: 0.5rem;
+    tbody {
+      tr td {
+        padding: 0.6rem 0.2rem;
+      }
+
+      .buttonShow {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.5rem;
+      }
+
+      .buttonUpdate {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 355px) {
+  table {
+    font-size: 0.4rem;
+    tbody {
+      tr td {
+        padding: 0.6rem 0.2rem;
+      }
+
+      .buttonShow {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.4rem;
+      }
+
+      .buttonUpdate {
+        padding: 0.3rem 0.2rem;
+        font-size: 0.4rem;
+      }
+    }
+  }
+}
