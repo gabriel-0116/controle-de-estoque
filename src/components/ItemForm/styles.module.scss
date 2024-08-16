@@ -1,106 +1,132 @@
-@mixin inputs-stylizing($width, $background-color, $border, $padding, $text-align, $color, $border-radius) {
-    width: $width;
-    background-color: $background-color;
-    border: $border;
-    padding: $padding;
-    text-align: $text-align;
-    color: $color;
-    border-radius: $border-radius;
-  }
-  
-  form {
-    max-width: 60rem;
-    margin: 0 auto;
-    padding: 0 1rem 1rem 1rem;
-    background-color: #001b1f;
-    box-shadow: 0 4px 16px 10px #918e8e;
-    border-radius: 0.3rem;
-    font-weight: 500;
-    font-size: 1.5rem;
-    
-  
-    fieldset {
-      border-radius: 4rem;
-      padding: 7.5rem;
-      width: 100%;
-  
-      legend {
-        text-align: center;
-        padding: 0 0.4rem;
-      }
+@mixin inputs-stylizing(
+  $width,
+  $background-color,
+  $border,
+  $padding,
+  $text-align,
+  $color,
+  $border-radius
+) {
+  width: $width;
+  background-color: $background-color;
+  border: $border;
+  padding: $padding;
+  text-align: $text-align;
+  color: $color;
+  border-radius: $border-radius;
+}
+
+form {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem 1rem 1rem;
+  background-color: #001b1f;
+  box-shadow: 0 4px 16px 10px #918e8e;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+
+  fieldset {
+    border-radius: 4rem;
+    padding: 7.5rem;
+    width: 100%;
+
+    legend {
+      text-align: center;
+      padding: 0 0.4rem;
     }
-  
+  }
+
+  .gridForm {
+    display: grid;
+    row-gap: 1rem;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    select {
+      @include inputs-stylizing(
+        15rem,
+        #505050,
+        none,
+        0.5rem 0.3rem,
+        start,
+        #fff,
+        1rem
+      );
+    }
+  }
+}
+
+.formControl {
+  .description {
+    max-width: 30rem;
+    padding: 0 0.5rem;
+    height: 4rem;
+    color: #fff;
+    background-color: #505050;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .buttonSave {
+    padding: 0.6rem 0;
+    margin-top: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    width: 5rem;
+    color: #01252b;
+    border-radius: 0.4rem;
+    z-index: 1;
+    background: #fff;
+    font-size: 1rem;
+    transition: ease 0.4s;
+
+    &:hover {
+      color: #fff;
+      background-color: #01252b;
+    }
+  }
+}
+
+@media screen and (max-width: 810px) {
+  form {
     .gridForm {
       display: grid;
-      row-gap: 1rem;
-      place-items: center;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
-  
-    div {
-      display: flex;
-      flex-direction: column;
-  
-      input,
-      select {
-        @include inputs-stylizing(15rem, #505050, none, 0.5rem 0.3rem, start, #fff, 1rem);
-      }
-    }
-  }
-  
-  .formControl {
-    .description {
-      max-width: 30rem;
-      padding: 0 0.5rem;
-      height: 4rem;
-      color: #fff;
-      background-color: #505050;
-      border: none;
-      border-radius: 0.6rem;
-      font-size: 1.2rem;
-    }
-  
-    .buttonSave {
-      padding: 0.6rem 0;
-      margin-top: 0.6rem; 
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      width: 5rem;
-      color: #01252b;
-      border-radius: 0.4rem;
-      z-index: 1;
-      background: #fff;
-      font-size: 1rem;
-      transition: ease 0.4s;
-  
-      &:hover {
-        color: #fff;
-        background-color: #01252b;
-      }
 
+  }
+ 
+}
+
+@media screen and (max-width: 510px) {
+  form {
+    width: 500px;
+    .gridForm {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
-  
-  @media screen and (max-width: 450px) {
-    form {
-      .gridForm {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
+}
+
+@media screen and (max-width: 426px) {
+  form {
+    .row {
+      display: grid;
+      place-content: center;
+      grid-template-columns: repeat(1, 1fr);
+
+      select {
+        height: 2rem;
       }
     }
   }
-  
-  @media screen and (max-width: 426px) {
-    form {
-      .row {
-        display: grid;
-        place-content: center;
-        grid-template-columns: repeat(1, 1fr);
-  
-        select {
-          height: 2rem;
-        }
-      }
-    }
-  }
+}
